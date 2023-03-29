@@ -40,19 +40,35 @@ function operate(num1,operator,num2){
     } else {
         return 'Invalid Request'
     }
+  }
+
+function clearDisplay() {
+      document.getElementById("display").value = "";
+      firstOperand = null;
+      operator = null;
+      secondOperand = null;
+      displayValue = "";
+  }
+  
+
+let firstOperand = null;
+let operator = null;
+let secondOperand = null;
+let displayValue = "";
+
+function addToDisplay(digit) {
+	displayValue += digit;
+	document.getElementById("display").value = displayValue;
+	}
+
+function addToDisplay(value) {
+  displayValue += value;
+  document.getElementById("display").value = displayValue;
+}
+
+function addOperator(op) {
+	if (firstOperand === null) {
+			firstOperand = parseFloat(displayValue);
+			operator = op;
     }
-
-    let firstOperand = null;
-		let operator = null;
-		let secondOperand = null;
-		let displayValue = "";
-
-		function addToDisplay(digit) {
-			displayValue += digit;
-			document.getElementById("display").value = displayValue;
-		}
-
-		function addOperator(op) {
-			if (firstOperand === null) {
-				firstOperand = parseFloat(displayValue);
-				operator = op;}}
+  }
