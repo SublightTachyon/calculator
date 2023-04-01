@@ -70,5 +70,42 @@ function addOperator(op) {
 	if (firstOperand === null) {
 			firstOperand = parseFloat(displayValue);
 			operator = op;
+      displayValue = "";
+    } else if (displayValue !== "") {
+      secondOperand = parseFloat(displayValue);
+      calculate();
+      firstOperand = parseFloat(document.getElementById("display").value);
+      operator = op;
+      secondOperand = null;
+      displayValue = "";
+    } else {
+      operator = op;
     }
   }
+
+function calculate(){
+  if (secondOperand === null && operator === '/') {
+    alert("We don't divide by zero");
+    clearDisplay();
+    returb;
+  }
+} if (firstOperand !== null && operator !== null && displayValue !== "") {
+  secondOperand = parseFloat(displayValue);
+  let result = null;
+  switch (operator) {
+    case "+":
+      result = firstOperand + secondOperand;
+      break;
+    case "-":
+      result = firstOperand - secondOperand;
+      break;
+    case "*":
+      result = firstOperand * secondOperand;
+      break;
+    case "/":
+      result = firstOperand / secondOperand;
+      break;
+    default:
+      result = null;
+  }
+}document.getElementById("display").value = result;
